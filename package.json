@@ -11,6 +11,10 @@
     "lint:fix": "eslint ./src --ext .ts,tsx --fix"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.8",
     "mobx": "^6.8.0",
     "mobx-react-lite": "^3.4.0",
     "mobx-state-tree": "^5.1.7",
