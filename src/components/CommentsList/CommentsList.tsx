@@ -1,6 +1,5 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { Stack } from '@mui/material';
 import { getSnapshot } from 'mobx-state-tree';
 import { useStore } from '../../store';
 

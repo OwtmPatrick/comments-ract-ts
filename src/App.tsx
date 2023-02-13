@@ -1,7 +1,6 @@
 import React from 'react';
 import { Stack } from '@mui/system';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import { CssBaseline } from '@mui/material';
 import AddComment from './components/AddComment';
 import CommentsList from './components/CommentsList';
 
@@ -15,6 +14,8 @@ function App() {
 
         <CommentsList />
       </Stack>
+
+      <CssBaseline />
     </Provider>
   );
 }

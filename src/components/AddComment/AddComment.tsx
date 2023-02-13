@@ -1,5 +1,13 @@
 import React from 'react';
-import { Stack, Button, TextField, DialogContent, Tooltip, Avatar } from '@mui/material';
+import {
+  Stack,
+  Button,
+  TextField,
+  DialogContent,
+  Tooltip,
+  Avatar,
+  IconButton as MuiIconButton
+} from '@mui/material';
 import { PhotoCamera } from '@mui/icons-material';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import { FormikProps } from 'formik';
@@ -84,10 +92,14 @@ const AddComment = ({
                 <Stack direction="row" justifyContent="space-between">
                   <label htmlFor="faceImage">
                     <Tooltip title="Select image">
-                      {/* @ts-ignore */}
-                      <IconButton color="primary" aria-label="upload picture" component="span">
+                      <MuiIconButton
+                        color="primary"
+                        aria-label="upload picture"
+                        component="span"
+                        sx={{ p: 0 }}
+                      >
                         <PhotoCamera fontSize="large" />
-                      </IconButton>
+                      </MuiIconButton>
                     </Tooltip>
                   </label>
 
