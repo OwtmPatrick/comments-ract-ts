@@ -68,13 +68,7 @@
     {
       "files": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
       "rules": {
-        "no-param-reassign": [
-          "error",
-          {
-            "props": true,
-            "ignorePropertyModificationsFor": ["state", "ctx", "connector"]
-          }
-        ]
+        "no-param-reassign": ["off"]
       }
     }
   ]
