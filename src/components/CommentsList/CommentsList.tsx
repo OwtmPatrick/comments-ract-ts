@@ -14,7 +14,7 @@ const CommentsList = observer(() => {
   console.log(getSnapshot(comments));
 
   return (
-    <Stack spacing={2} alignItems="center" sx={{ padding: 5 }}>
+    <>
       {comments.map(({ id, incrementRating, decrementRating, toggle, timeAgo, ...rest }) => (
         <Comment
           key={id}
@@ -26,7 +26,7 @@ const CommentsList = observer(() => {
           {...rest}
         />
       ))}
-    </Stack>
+    </>
   );
 });
 
