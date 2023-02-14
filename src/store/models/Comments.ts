@@ -32,7 +32,7 @@ const CommentStore = types
       }
     }),
     addComment(data: CommentType) {
-      self.comments.push(data);
+      self.comments = cast([data, ...self.comments]);
     }
   }));
 
