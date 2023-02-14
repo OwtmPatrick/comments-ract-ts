@@ -19,15 +19,25 @@ const Comment = types
       const hour = 1000 * 60 * 60;
       const day = 1000 * 60 * 60 * 24;
 
+      if (difference < minute) {
+        return 'just now';
+      }
+
       if (difference < hour) {
-        return `${Math.round(difference / minute)} minutes ago`;
+        const diff = Math.round(difference / minute);
+
+        return `${diff} minute${diff > 1 ? 's' : ''} ago`;
       }
 
       if (difference < day) {
-        return `${Math.round(difference / hour)} hours ago`;
+        const diff = Math.round(difference / hour);
+
+        return `${diff} hour${diff > 1 ? 's' : ''} ago`;
       }
 
-      return `${Math.round(difference / day)} days ago`;
+      const diff = Math.round(difference / day);
+
+      return `${diff} day${diff > 1 ? 's' : ''} ago`;
     }
   }))
   .actions((self) => ({
