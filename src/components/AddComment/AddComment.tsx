@@ -16,6 +16,7 @@ import { IconButton, Dialog } from './AddComment.styles';
 
 interface AddCommentProps {
   open: boolean;
+  disabled: boolean;
   toggleFormModal: () => void;
   handleCapture: (e: React.ChangeEvent<HTMLInputElement>) => void;
   formik: FormikProps<{
@@ -28,6 +29,7 @@ interface AddCommentProps {
 
 const AddComment = ({
   open,
+  disabled,
   toggleFormModal,
   handleCapture,
   formik
@@ -37,7 +39,12 @@ const AddComment = ({
   return (
     <>
       <Tooltip title="Add comment">
-        <IconButton color="primary" aria-label="add comment" onClick={toggleFormModal}>
+        <IconButton
+          color="primary"
+          aria-label="add comment"
+          onClick={toggleFormModal}
+          disabled={disabled}
+        >
           <AddCircleRoundedIcon fontSize="large" />
         </IconButton>
       </Tooltip>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { observer } from 'mobx-react-lite';
 import { useFormik } from 'formik';
 import AddComment from './AddComment';
+import { LoadingState } from '../../types';
 
 import validationSchema from './validationSchema';
 
@@ -11,7 +13,7 @@ import { useStore } from '../../store';
 const Container = () => {
   const [open, setOpen] = useState<boolean>(false);
   const {
-    commentsStore: { addComment }
+    commentsStore: { addComment, loading }
   } = useStore();
 
   const formik = useFormik({
@@ -56,6 +58,7 @@ const Container = () => {
   return (
     <AddComment
       open={open}
+      disabled={loading === LoadingState.PENDING}
       toggleFormModal={toggleFormModal}
       formik={formik}
       handleCapture={handleCapture}
@@ -63,4 +66,4 @@ const Container = () => {
   );
 };
 
-export default Container;
+export default observer(Container);

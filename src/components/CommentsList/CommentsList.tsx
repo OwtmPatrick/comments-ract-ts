@@ -3,11 +3,26 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
 
 import Comment from '../Comment';
+import CommentLoader from '../CommentLoader';
 
-const CommentsList = observer(() => {
+import { LoadingState } from '../../types';
+
+const CommentsList = () => {
   const {
-    commentsStore: { comments }
+    commentsStore: { comments, loading }
   } = useStore();
+
+  if (loading === LoadingState.PENDING) {
+    return (
+      <>
+        {Array(2)
+          .fill(0)
+          .map((_, index: number) => (
+            <CommentLoader key={index} />
+          ))}
+      </>
+    );
+  }
 
   return (
     <>
@@ -24,6 +39,6 @@ const CommentsList = observer(() => {
       ))}
     </>
   );
-});
+};
 
-export default CommentsList;
+export default observer(CommentsList);

@@ -3,7 +3,14 @@ export type Comment = {
   text: string;
   author: string;
   avatar: string | null;
-  date: Date;
+  date: Date | number;
   rating: number;
   hidden: boolean;
 };
+
+export enum LoadingState {
+  IDLE = 'idle',
+  PENDING = 'pending',
+  SUCCESS = 'success',
+  ERROR = 'error'
+}
