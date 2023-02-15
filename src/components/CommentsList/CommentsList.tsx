@@ -1,18 +1,17 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../../store';
-
 import Comment from '../Comment';
 import CommentLoader from '../CommentLoader';
 
-import { LoadingState } from '../../types';
+import { CommentProps } from '../Comment/Comment';
 
-const CommentsList = () => {
-  const {
-    commentsStore: { comments, loading }
-  } = useStore();
+interface CommentsListProps {
+  comments: CommentProps[];
+  loading: boolean;
+}
 
-  if (loading === LoadingState.PENDING) {
+const CommentsList = ({ comments, loading }: CommentsListProps) => {
+  if (loading) {
     return (
       <>
         {Array(2)
